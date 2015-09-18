@@ -31,7 +31,7 @@ public static int[] topKFrequent(int[] nums, int k){
              public int compare(Object o1, Object o2){
              	Integer i1 = (Integer)o1, i2 = (Integer)o2;
 
-                return map.get(i1) - map.get(i2);
+                return map.get(i2) - map.get(i1);
              }
          };
  
@@ -41,15 +41,7 @@ public static int[] topKFrequent(int[] nums, int k){
          while( itr.hasNext() ){
          	Map.Entry pair = (Map.Entry)itr.next();
          	Integer i = (Integer)pair.getKey();
-
-         	if( minHeap.size()<k )
-         		minHeap.offer(i);
-         	else {
-         		if( map.get(minHeap.peek()) < map.get(i) ){
-         			minHeap.poll();
-         			minHeap.offer(i);
-         		}
-         	}
+         	minHeap.offer(i);
          }
 
          int[] result = new int[k];
