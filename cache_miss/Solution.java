@@ -18,7 +18,7 @@ public class Solution {
 		for(int i=0; i<nums.length; i++) {
 			if(cache.contains(nums[i])) {
 				cache.remove(new Integer(nums[i]));
-				cache.offerFirst(nums[i]);
+				cache.offerLast(nums[i]);
 			} else {
 				if(cache.size()>=k)
 					cache.pollFirst();
